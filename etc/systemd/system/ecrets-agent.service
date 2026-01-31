@@ -1,0 +1,23 @@
+[Unit]
+Description=AWS Secrets Manager Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/aws/secrets-agent/agent --config /etc/secrets-agent/config.yaml
+Restart=always
+RestartSec=2
+
+Environment="*******"
+Environment="AWS_REGION=eu-central-1"
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log
+
+[Install]
+WantedBy=multi-user.target
