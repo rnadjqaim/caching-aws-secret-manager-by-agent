@@ -1,0 +1,13 @@
+http:
+  port: 2773
+  host: 127.0.0.1
+
+cache:
+  ttlSeconds: 300 
+
+log:
+  level: info
+  format: json
+
+aws:
+  region: eu-central-1
